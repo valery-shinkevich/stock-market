@@ -1,0 +1,11 @@
+.idea/
+bin
+build
+target
+.settings
+.classpath
+.project
+*.iml
+*.ipr
+*.iws
+*.log

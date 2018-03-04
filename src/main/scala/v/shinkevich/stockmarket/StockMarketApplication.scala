@@ -10,10 +10,10 @@ object StockMarketApplication {
 
   def main(args: Array[String]): Unit = {
 
-    val clients = new ClientsTextReader("tz/clients.txt").readClients()
+    val clients = new ClientsTextReader("tz/clients.txt").read
     log.info(s"Загружено ${clients.size} клиентов")
 
-    val orders = new OrdersTextReader("tz/orders.txt").readOrders()
+    val orders = new OrdersTextReader("tz/orders.txt").read
     log.info(s"Загружено ${orders.size} ордеров")
 
     val result = new StockMarket(clients, orders).calculateStocks()
@@ -21,7 +21,7 @@ object StockMarketApplication {
     val outputFileName = s"tz/result.txt"
 
     val writer = new ClientsTextWriter(outputFileName)
-    writer.writeClients(result)
+    writer.write(result)
     log.info(s"Результат записан в $outputFileName")
 
   }

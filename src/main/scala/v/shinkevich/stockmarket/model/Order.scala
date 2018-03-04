@@ -9,13 +9,3 @@ package v.shinkevich.stockmarket.model
 */
 
 case class Order(clientName: String, operation: String, stock: String, price: Int, quantity: Int)
-
-object Order {
-  def apply(values: Seq[String]): Order = Order(
-    clientName = values.head,
-    operation = values(1),
-    stock = values(2),
-    price = values(3).toInt,
-    quantity = values(4).toInt
-  )
-}

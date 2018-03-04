@@ -4,7 +4,7 @@ import java.io.File
 
 import org.scalatest.FunSuite
 import org.scalatest.Matchers._
-import v.shinkevich.stockmarket.io.ClientsTextWriter
+import v.shinkevich.stockmarket.io.{ClientsTextWriter, TabSeparatedTextWriter}
 import v.shinkevich.stockmarket.model.Client
 
 import scala.io.Source
@@ -21,7 +21,7 @@ class ClientsTextWriterTest extends FunSuite {
     )
 
     val writer = new ClientsTextWriter(tempFileName)
-    writer.writeClients(clients)
+    writer.write(clients)
 
     val lines = Source.fromFile(name = tempFileName).getLines().toSeq
 

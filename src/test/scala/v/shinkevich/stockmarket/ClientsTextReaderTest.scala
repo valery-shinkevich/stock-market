@@ -9,7 +9,7 @@ import v.shinkevich.stockmarket.model.Client
 class ClientsTextReaderTest extends FunSuite {
 
   test("Load Clients file") {
-    val clients = new ClientsTextReader("tz/clients.txt").readClients()
+    val clients = new ClientsTextReader("tz/clients.txt").read
 
     clients.size shouldBe 9
 

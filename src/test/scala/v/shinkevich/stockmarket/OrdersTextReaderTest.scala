@@ -8,7 +8,7 @@ import v.shinkevich.stockmarket.model.Order
 class OrdersTextReaderTest extends FunSuite {
 
   test("Load Orders file") {
-    val orders = new OrdersTextReader("tz/orders.txt").readOrders()
+    val orders = new OrdersTextReader("tz/orders.txt").read
 
     orders.size shouldBe 8070
 

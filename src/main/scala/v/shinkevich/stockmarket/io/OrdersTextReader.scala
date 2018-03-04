@@ -2,16 +2,18 @@ package v.shinkevich.stockmarket.io
 
 import v.shinkevich.stockmarket.model.Order
 
-import scala.io.Source
+class OrdersTextReader(fileName: String) extends TabSeparatedTextReader(fileName) {
 
-class OrdersTextReader(val fileName: String) {
+  private def createOrder(values: Seq[String]): Order = Order(
+    clientName = values.head,
+    operation = values(1),
+    stock = values(2),
+    price = values(3).toInt,
+    quantity = values(4).toInt
+  )
 
-  def readOrders(): Seq[Order] = {
-    for {
-      line <- Source.fromFile(name = fileName).getLines().toVector
-      values = line.split('\t').map(_.trim)
-    }
-      yield Order(values)
+  def read: Seq[Order] = {
+    for (values <- readValues)
+      yield createOrder(values)
   }
-
 }
